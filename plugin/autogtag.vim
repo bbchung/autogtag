@@ -33,4 +33,5 @@ call s:update_gtags()
 
 augroup AutoGtag
     au BufWritePost,BufEnter * call s:update_gtags()
+    au VimLeave * silent! call job_stop(s:gtags_job, "int")
 augroup END
