@@ -5,6 +5,10 @@ fun! s:on_gtags_finish()
 endf
 
 fun! s:update_gtags()
+    if index(['c', 'cpp'], &filetype) == -1
+        return
+    endif
+
     if &diff
         return
     endif
